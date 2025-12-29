@@ -2,7 +2,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 
-# Load your trained model
+# Load the trained model
 model = keras.models.load_model("quadratic_solver_tf.keras")
 
 # Example equation to test: ax^2 + bx + c = 0
@@ -29,4 +29,5 @@ print("Actual d:", np.sqrt(np.abs((b_over_a/2)**2-c_over_a)))
 print("Predicted d:", d)
 print("Real roots:", b**2-4*a*c>=0)
 print("Probability imaginary:", imag_prob)
+print("Actual roots:", (-b + np.array([1, -1])*np.sqrt(b**2-4*a*c,dtype=complex))/(2*a))
 print("Predicted roots:",xs+(1j* imag+(1-imag))*d,xs-(1j*imag+1-imag)*d)
